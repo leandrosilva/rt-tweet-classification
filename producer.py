@@ -1,5 +1,4 @@
-from tweepy import OAuthHandler
-from tweepy import Stream
+from tweepy import OAuthHandler, Stream
 from twitter_helpers import consumer_key, consumer_secret, access_token, access_token_secret
 from sys_helpers import exit_if_error, wait_for_crl_c
 from kafka_helpers import KAFKA_TWEET_TOPIC, get_kafka_hosts, create_kafka_producer, KafkaPusher
