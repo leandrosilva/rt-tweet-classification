@@ -23,7 +23,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 
 print("Connecting to produce Kafka records...")
-(producer, err) = create_kafka_producer(KAFKA_TWEET_TOPIC, get_kafka_hosts())
+producer, err = create_kafka_producer(KAFKA_TWEET_TOPIC, get_kafka_hosts())
 exit_if_error(err)
 
 pusher = KafkaPusher(KAFKA_TWEET_TOPIC, producer, print)

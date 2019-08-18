@@ -17,16 +17,16 @@ def get_kafka_hosts():
 
 def create_kafka_consumer(topic, broker_list):
     try:
-        return (KafkaConsumer(topic, bootstrap_servers=broker_list), None)
+        return KafkaConsumer(topic, bootstrap_servers=broker_list), None
     except Exception as e:
-        return (None, e)
+        return None, e
 
 
 def create_kafka_producer(topic, broker_list):
     try:
-        return (KafkaProducer(bootstrap_servers=broker_list), None)
+        return KafkaProducer(bootstrap_servers=broker_list), None
     except Exception as e:
-        return (None, e)
+        return None, e
 
 
 class KafkaPusher(StreamListener):

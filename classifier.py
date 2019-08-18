@@ -46,9 +46,9 @@ def open_vocab_for_write():
 
 def load_vocabulary():
     try:
-        return (pickle.load(open("models/vocabulary.pickle", "rb")), None)
+        return pickle.load(open("models/vocabulary.pickle", "rb")), None
     except Exception as e:
-        return (None, e)
+        return None, e
 
 
 def open_model_for_write():
@@ -58,9 +58,9 @@ def open_model_for_write():
 
 def load_model():
     try:
-        return (pickle.load(open("models/model.pickle", "rb")), None)
+        return pickle.load(open("models/model.pickle", "rb")), None
     except Exception as e:
-        return (None, e)
+        return None, e
 
 
 def may_create_models_dir():

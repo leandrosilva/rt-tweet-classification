@@ -1,24 +1,24 @@
 from sklearn.feature_extraction.text import CountVectorizer
-from classifier import *
+from classifier import load_vocabulary, load_model, tf_idf, fetch_train_dataset, DEFAULT_CATEGORIES
 from sys_helpers import exit_if_error, wait_for_crl_c
 from kafka_helpers import KAFKA_TWEET_TOPIC, get_kafka_hosts, create_kafka_consumer
 
 
 print("Loading pre-trained model...")
-(vocabulary, err) = load_vocabulary()
+vocabulary, err = load_vocabulary()
 exit_if_error(err)
 
 count_vect = CountVectorizer(vocabulary=vocabulary)
 count_vect._validate_vocabulary()
 
-(model, err) = load_model()
+model, err = load_model()
 exit_if_error(err)
 
 tfidf_transformer = tf_idf(DEFAULT_CATEGORIES)[0]
 
 
 print("Connecting to consume Kafka stream...")
-(consumer, err) = create_kafka_consumer(KAFKA_TWEET_TOPIC, get_kafka_hosts())
+consumer, err = create_kafka_consumer(KAFKA_TWEET_TOPIC, get_kafka_hosts())
 exit_if_error(err)
 
 
