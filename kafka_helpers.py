@@ -10,8 +10,7 @@ KAFKA_TWEET_TOPIC = "twitter-stream"
 
 def get_kafka_hosts():
     try:
-        docker_host = parse.urlsplit(os.environ["DOCKER_HOST"]).netloc.split(":")[0]
-        return [docker_host + ":29092"]
+        return [os.environ["KAFKA_BROKER"]]
     except:
         return ["localhost:29092"]
 
@@ -37,9 +36,9 @@ class KafkaPusher(StreamListener):
         self.logger = logger
 
     def on_data(self, data):
-        all_data = json.loads(data)
-        tweet = all_data["text"]
-        self.logger("[PUSHING TWEET] =>", tweet)
+        json_data = json.loads(data)
+        tweet = json_data["text"]
+        self.logger("[pushing tweet] =>", tweet)
         self.producer.send(self.topic, value=tweet.encode('utf-8'))
         return True
 

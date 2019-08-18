@@ -19,12 +19,13 @@ As far as Kafka goes, if you have Docker installed, no worries, I got your back,
 
 When you are good to go with `python` and `virtualenv` installed and those Twitter keys on hand:
 
-1. Open a terminal and `git clone` this repo wherever you like
+1. Open a terminal, `git clone` this repo wherever you like, and `cd` into it
 2. Rename `.env.sample` to just `.env`
 3. Add those Twitter keys on `.env`
-4. Run `virtualenv .env` in the repo's root dir
-5. Run `source .env` in the repo's root dir
-5. Run `pip install -r requirements.txt`
+4. Set `KAFKA_BROKER` on `.env` as you like or leave it as is
+5. Run `virtualenv .venv` to create a new virtual environment
+6. Run `source .venv` to load this new virtual environment
+7. Run `pip install -r requirements.txt` to install all dependencies
 
 Done.
 
