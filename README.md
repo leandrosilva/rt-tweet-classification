@@ -31,7 +31,7 @@ Done.
 
 ## Try it out
 
-First thing to do is to train the model. It is a one time kind of thing. So open a terminal and fire:
+First thing to do is to train the model. This is a one time kind of thing. So open a terminal and fire:
 
     $ source .env
     $ python trainer.py
